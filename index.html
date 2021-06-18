@@ -11,24 +11,24 @@
 		<p class="text-end">
 			<button class="btn btn-success btn-md" onclick="downloadImage('makeImage')">Dowload image</button>
 		</p>
-		<div class="row bg-danger"  id="makeImage" >
+		<div class="row bg-danger pt-3"  id="makeImage" >
 			<div class="col-4 ">
 				<div class="text-center bg-warning rounded">
-					<img src="img/hill.jpg" class="img-fluid  mx-auto d-block">
+					<img src="https://source.unsplash.com/random/400x250" class="img-fluid  mx-auto d-block">
 					<h2>Title</h2>
 					<p class="p-1">Quid autem habent admirationis, cum prope accesseris? Sed fortuna fortis; Tum ille: Ain tandem? Itaque hic ipse iam pridem est reiectus; Ea possunt paria non esse. </p>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="text-center bg-warning rounded">
-					<img src="img/hill.jpg" class="img-fluid  mx-auto d-block">
+					<img src="https://source.unsplash.com/random/400x250" class="img-fluid  mx-auto d-block">
 					<h2>Title</h2>
 					<p class="p-1">Quid autem habent admirationis, cum prope accesseris? Sed fortuna fortis; Tum ille: Ain tandem? Itaque hic ipse iam pridem est reiectus; Ea possunt paria non esse. </p>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="text-center bg-warning rounded">
-					<img src="img/hill.jpg" class="img-fluid  mx-auto d-block">
+					<img src="https://source.unsplash.com/random/400x250" class="img-fluid  mx-auto d-block">
 					<h2>Title</h2>
 					<p class="p-1">Quid autem habent admirationis, cum prope accesseris? Sed fortuna fortis; Tum ille: Ain tandem? Itaque hic ipse iam pridem est reiectus; Ea possunt paria non esse. </p>
 				</div>
@@ -42,18 +42,20 @@
 <script type="text/javascript">
 		function downloadImage(div_name){
 	    var node = document.getElementById(div_name);
-	    var scale = 1.5;
+	    var scaleX = 2;
+	    var scaleY = 1;
 	    var option = {
-				 width: node.clientWidth,
-				 height: node.clientHeight,
+				 width: node.clientWidth*scaleX,
+				 height: node.clientHeight*scaleY,
 				 style: {
-				  transform: 'scale(1,1)',
-				  transformOrigin: 'top left'
+				  transform: 'scale('+scaleX+","+scaleY+')',
+				  transformOrigin: 'top left',
+				  marginLeft:'0px',
+				  marginRight:'0px',
 				}
 			};
 	    domtoimage.toBlob(node,option)
         .then(function (blob) {
-        	node.style.marginLeft='10px';
             window.saveAs(blob, div_name+'.png');
         	});
 		}
