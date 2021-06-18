@@ -42,11 +42,13 @@
 <script type="text/javascript">
 		function downloadImage(div_name){
 	    var node = document.getElementById(div_name);
-	    var scaleX = 2;
+	    var scaleX = 1;
 	    var scaleY = 1;
+	    var w = 1140;
+	    var y = 407;
 	    var option = {
-				 width: node.clientWidth*scaleX,
-				 height: node.clientHeight*scaleY,
+				 width: w*scaleX,
+				 height: y*scaleY,
 				 style: {
 				  transform: 'scale('+scaleX+","+scaleY+')',
 				  transformOrigin: 'top left',
