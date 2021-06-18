@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Download Html to image</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container mt-5">
+		
+		<p class="text-end">
+			<button class="btn btn-success btn-md" onclick="downloadImage('makeImage')">Dowload image</button>
+		</p>
+		<div class="row bg-danger"  id="makeImage" >
+			<div class="col-4 ">
+				<div class="text-center bg-warning rounded">
+					<img src="img/hill.jpg" class="img-fluid  mx-auto d-block">
+					<h2>Title</h2>
+					<p class="p-1">Quid autem habent admirationis, cum prope accesseris? Sed fortuna fortis; Tum ille: Ain tandem? Itaque hic ipse iam pridem est reiectus; Ea possunt paria non esse. </p>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="text-center bg-warning rounded">
+					<img src="img/hill.jpg" class="img-fluid  mx-auto d-block">
+					<h2>Title</h2>
+					<p class="p-1">Quid autem habent admirationis, cum prope accesseris? Sed fortuna fortis; Tum ille: Ain tandem? Itaque hic ipse iam pridem est reiectus; Ea possunt paria non esse. </p>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="text-center bg-warning rounded">
+					<img src="img/hill.jpg" class="img-fluid  mx-auto d-block">
+					<h2>Title</h2>
+					<p class="p-1">Quid autem habent admirationis, cum prope accesseris? Sed fortuna fortis; Tum ille: Ain tandem? Itaque hic ipse iam pridem est reiectus; Ea possunt paria non esse. </p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
+<script type="text/javascript">
+		function downloadImage(div_name){
+	    var node = document.getElementById(div_name);
+	    var scale = 1.5;
+	    var option = {
+				 width: node.clientWidth,
+				 height: node.clientHeight,
+				 style: {
+				  transform: 'scale(1,1)',
+				  transformOrigin: 'top left'
+				}
+			};
+	    domtoimage.toBlob(node,option)
+        .then(function (blob) {
+        	node.style.marginLeft='10px';
+            window.saveAs(blob, div_name+'.png');
+        	});
+		}
+</script>
+</body>
+</html>
